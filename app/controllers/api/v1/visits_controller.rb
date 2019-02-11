@@ -4,9 +4,9 @@ class Api::V1::VisitsController < ApplicationController
   end
 
   def create
-    # byebug
-    new_visit = Visit.create(date: visit_params['date'], time_of_day: visit_params['time_of_day'])
-    # , user: visit_params['user']
+    user = User.find(visit_params['user_id'])
+    new_visit = Visit.create(date: visit_params['date'], time_of_day: visit_params['time_of_day'], user: user)
+
     render json: Visit.find(new_visit.id)
   end
 
@@ -17,6 +17,6 @@ class Api::V1::VisitsController < ApplicationController
   private
 
   def visit_params
-    params.require(:visit).permit(:date, :time_of_day)
+    params.require(:visit).permit(:date, :time_of_day, :user_id)
   end
 end
