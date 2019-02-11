@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_195534) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.date "date"
+    t.datetime "date"
     t.string "time_of_day"
     t.integer "user_id"
     t.datetime "created_at", null: false

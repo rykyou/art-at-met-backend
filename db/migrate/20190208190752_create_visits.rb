@@ -1,7 +1,7 @@
 class CreateVisits < ActiveRecord::Migration[5.2]
   def change
     create_table :visits do |t|
-      t.date :date
+      t.datetime :date
       t.string :time_of_day
       t.integer :user_id
 
