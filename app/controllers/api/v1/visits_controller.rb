@@ -19,8 +19,6 @@ class Api::V1::VisitsController < ApplicationController
     render json: Visit.find(visit_to_update.id)
   end
 
-
-
   def destroy
     render json: Visit.find(params[:id]).destroy
   end
